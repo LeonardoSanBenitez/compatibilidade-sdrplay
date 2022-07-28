@@ -1,0 +1,87 @@
+\chapter{Código de ajuste}
+
+\begin{lstlisting}[language=Python]
+import numpy as np
+from typing import Tuple
+
+adjust_table = [
+  {
+    'freq': 10,
+    'alpha': 1.14,
+    'u': 0.02,
+  },
+  {
+    'freq': 30,
+    'alpha': 1.04,
+  },
+  {
+    'freq': 50,
+    'alpha': 1.0,
+    'u': 0.04,
+  },
+  {
+    'freq': 70,
+    'alpha': 1.51,
+  },
+  {
+    'freq': 90,
+    'alpha': 1.18,
+  },
+  {
+    'freq': 100,
+    'u': 0.08,
+  },
+  {
+    'freq': 110,
+    'alpha': 1.04,
+  },
+  {
+    'freq': 130,
+    'alpha': 1.21,
+  },
+  {
+    'freq': 150,
+    'alpha': 1.22,
+    'u': 0.04,
+  },
+  {
+    'freq': 170,
+    'alpha': 1.05,
+  },
+  {
+    'freq': 190,
+    'alpha': 1.03,
+  },
+  {
+    'freq': 200,
+    'u': 0.08,
+  },
+]
+
+
+
+def apply_adjust(frequency: float, measurement: float, adjust_table: list) -> Tuple[float, float]:
+  '''
+  The adjust_table is expected to be monotonically increasing in frequency
+  Return the tuple (alpha, uncertainty)
+  '''
+  assert frequency >= adjust_table[0]['freq'], 'The device was not calibrated for this frequency range'
+  assert frequency <= adjust_table[-1]['freq'], 'The device was not calibrated for this frequency range'
+  alpha = np.interp(
+      frequency, 
+      [a['freq'] for a in adjust_table if 'alpha' in a],
+      [a['alpha'] for a in adjust_table if 'alpha' in a],
+  )
+  uncertainty = np.interp(
+      frequency, 
+      [a['freq'] for a in adjust_table if 'u' in a], 
+      [a['u'] for a in adjust_table if 'u' in a],
+  )
+  return (alpha, uncertainty)
+
+
+frequency = 25
+measurement = -70
+alpha, uncertainty = apply_adjust(frequency, measurement, adjust_table)
+print(f"At {frequency} MHz, we measured {measurement} V, which is adjusted to {measurement*alpha}+-{uncertainty} V\t\t(alpha={alpha})")
+\end{lstlisting}

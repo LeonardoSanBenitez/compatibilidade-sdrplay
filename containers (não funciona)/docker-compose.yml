@@ -1,0 +1,12 @@
+version: "3.5"
+services:
+  notebooks:
+    container_name: notebooks-sdr
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+       - ./:/src
+       - /dev/bus/usb:/dev/bus/usb
+    network_mode: host
+    privileged: true

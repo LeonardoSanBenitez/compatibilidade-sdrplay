@@ -1,0 +1,7 @@
+\chapter{Conclusões}
+
+Neste trabalho comparou-se as medidas obtidas com os equipamentos R\&S HMS-X e SDR RSP1, para a faixa de frequência de 10MHz à 200MHz.
+Obteve-se o erro sistemático do SDR RSP1 em relação ao R\&S HMS-X, do qual determinou-se o o fator de ajuste necessário para corrigir o erro. Obteve-se também a incertezado tipo A do equipamento. 
+
+
+Como ambos - ajuste e incerteza - são dependentes da frequência, implementou-se um código na linguagem Python que, dado uma medição, realiza o ajuste e indica a incerteza (disponível no Apêndice A). Para tanto, o código utiliza a interpolação linear dos valores obtidos para o alpha e $u$. 

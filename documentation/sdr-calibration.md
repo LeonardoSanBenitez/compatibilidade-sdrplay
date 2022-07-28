@@ -1,0 +1,12 @@
+- Someone requesting this feature: [https://sdr-radio.groups.io/g/main/topic/amplitude_scale_calibration/69990195](https://sdr-radio.groups.io/g/main/topic/amplitude_scale_calibration/69990195)
+- discussion about it
+    - [https://forum.sdr-radio.com:4499/viewtopic.php?t=1060](https://forum.sdr-radio.com:4499/viewtopic.php?t=1060)
+    - “you cannot use a SDR Rx [...] as a reliable meassuring tool [...] Unless you have a calibrated signal generator and make a comparisation chart for every bandwidth, frequency, agc & gain settings and so on.”
+- RF power Measurement
+    - video
+    - [https://www.youtube.com/watch?v=MRR-x_TjOp4](https://www.youtube.com/watch?v=MRR-x_TjOp4)
+- amplitude-calibration
+    - video
+    - [https://www.youtube.com/watch?v=6cgFvIQxU5A](https://www.youtube.com/watch?v=6cgFvIQxU5A)
+- Calibration and Synchronization of Software-Defined-Radio Arrays
+    - [https://ieeexplore.ieee.org/document/9330112](https://ieeexplore.ieee.org/document/9330112)
